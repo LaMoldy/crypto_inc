@@ -19,6 +19,7 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 // Logs in when ready
 client.on("ready", () => {
   MessageLogger.infoMessage(`Logged in as ${client.user?.tag}`);
+  MessageLogger.infoMessage(`Crypto Inc has started and is now awaiting commands.`);
 });
 
 // Does an event on iteraction creation
