@@ -106,3 +106,5 @@ dist
 # VSCode Files
 .vscode
 workspace.code-workspace
+
+package-lock.json
