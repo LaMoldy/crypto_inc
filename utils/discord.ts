@@ -1,10 +1,12 @@
 // Package imports
 import { REST, Routes } from "discord.js";
 import * as dotenv from "dotenv";
+import MessageLogger from "./messages";
 
 // Loads dotenv file
 dotenv.config();
 
+// Reloads the slash commands
 export default function loadCommands(): void {
   // Creates a list of commands
   const commands = [
@@ -20,7 +22,7 @@ export default function loadCommands(): void {
 
   (async () => {
     try {
-      console.log("Refreshing application (/) commands");
+      MessageLogger.infoMessage("Refreshing application (/) commands");
       await rest.put(
         Routes.applicationCommands(process.env.CLIENT_ID as string),
         {
@@ -28,6 +30,9 @@ export default function loadCommands(): void {
         }
       );
     } catch (error) {
+      MessageLogger.errorMessage(
+        "Problem encountered reloading application (/) commands"
+      );
       console.log(error);
     }
   })();

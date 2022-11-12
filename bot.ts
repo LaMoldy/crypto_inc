@@ -1,7 +1,8 @@
 // Package imports
 import { Client, GatewayIntentBits } from "discord.js";
 import * as dotenv from "dotenv";
-import loadCommands from "./discord";
+import loadCommands from "./utils/discord";
+import MessageLogger from "./utils/messages";
 
 // Loads the dotenv file
 dotenv.config();
@@ -10,8 +11,8 @@ dotenv.config();
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
 // Logs in when ready
-client.on("ready",  () => {
-  console.log(`Logged in as ${client.user?.tag}`);
+client.on("ready", () => {
+  MessageLogger.infoMessage(`Logged in as ${client.user?.tag}`);
 });
 
 // Does an event on iteraction creation
