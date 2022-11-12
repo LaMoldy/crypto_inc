@@ -14,6 +14,10 @@ export default function loadCommands(): void {
       name: "ping",
       description: "Replies with pong!",
     },
+    {
+      name: "button",
+      description: "Button",
+    },
   ];
 
   const rest = new REST({ version: "10" }).setToken(
