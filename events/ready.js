@@ -1,4 +1,4 @@
-import MessageLogger from "../utils/messages";
+import MessageLogger from "../utils/messages.js";
 
 const once = true;
 const name = "ready";

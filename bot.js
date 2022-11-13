@@ -2,8 +2,8 @@
 import { Client, GatewayIntentBits } from "discord.js";
 import * as dotenv from "dotenv";
 import * as fs from "node:fs";
-import loadCommands from "./utils/discord";
-import MessageLogger from "./utils/messages";
+import loadCommands from "./utils/discord.js";
+import MessageLogger from "./utils/messages.js";
 
 // Loads the dotenv file
 dotenv.config();
@@ -18,7 +18,7 @@ MessageLogger.infoMessage(
 // Gets the command files by looking at the command directory
 const events = fs
   .readdirSync("./events")
-  .filter((file) => file.endsWith(".ts"));
+  .filter((file) => file.endsWith(".js"));
 
 (async () => {
   // Check the event and run it

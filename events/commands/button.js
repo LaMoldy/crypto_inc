@@ -2,7 +2,6 @@ import {
   ActionRowBuilder,
   ButtonBuilder,
   ButtonStyle,
-  ChatInputCommandInteraction,
   SlashCommandBuilder,
 } from "discord.js";
 
@@ -14,8 +13,8 @@ async function create() {
   return command.toJSON();
 }
 
-async function invoke(interaction: ChatInputCommandInteraction) {
-  const row = new ActionRowBuilder<ButtonBuilder>().addComponents(
+async function invoke(interaction) {
+  const row = new ActionRowBuilder().addComponents(
     new ButtonBuilder()
       .setCustomId("primary")
       .setLabel("hello")

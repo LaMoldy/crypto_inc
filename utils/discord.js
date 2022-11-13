@@ -2,13 +2,13 @@
 import { REST, Routes } from "discord.js";
 import * as dotenv from "dotenv";
 import * as fs from "node:fs";
-import MessageLogger from "./messages";
+import MessageLogger from "../utils/messages.js";
 
 // Loads dotenv file
 dotenv.config();
 
 // Reloads the slash commands
-export default function loadCommands(): void {
+export default function loadCommands() {
   // Sets the variables for the commands
   const commands = [];
   // Gets all the files with ts extension
@@ -17,9 +17,7 @@ export default function loadCommands(): void {
     .filter((file) => file.endsWith(".ts"));
 
   // Creates route to discord
-  const rest = new REST({ version: "10" }).setToken(
-    process.env.DISCORD_TOKEN as string
-  );
+  const rest = new REST({ version: "10" }).setToken(process.env.DISCORD_TOKEN);
 
   // Adds teh commands to the array in JSON format
 

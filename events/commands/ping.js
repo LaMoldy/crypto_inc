@@ -11,7 +11,7 @@ async function create() {
   return command.toJSON();
 }
 
-async function invoke(interaction: ChatInputCommandInteraction) {
+async function invoke(interaction) {
   const user = interaction.options.getUser("user");
 
   if (user != null) {
